@@ -11,20 +11,8 @@
   --border-burgundy: #A67580;
   --nav-bg-glass: rgba(138, 90, 101, 0.85);
   --nav-surface-glass: rgba(155, 108, 119, 0.7);
-
-  /* The last number controls opacity */
   --nav-text: #F1ECE2;
   --nav-text-muted: #D1B8BE;
-}
-
-body {
-  background-image: url('Book-nook.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  margin: 0;
-  padding-top: 70px;
 }
 
 * {
@@ -32,6 +20,17 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-image: url("Book-nook.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding-top: 70px;
+  min-height: 100vh;
 }
 
 /* Navigation bar */
@@ -50,15 +49,12 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 15px;
   padding: 0 25px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
 nav ul {
   list-style: none;
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
   gap: 25px;
@@ -77,46 +73,48 @@ nav a:hover {
   color: var(--nav-text-muted);
   background-color: var(--nav-surface-glass);
 }
+
+/* Dropdown */
+
 .dropdown {
   position: relative;
-  height: 100%;
+  height: 70px;
   display: flex;
   align-items: center;
- }
- 
- 
- .dropdown-content {
+}
+
+.dropdown-content {
   display: none;
   position: absolute;
-  top: 100%;
+  top: 70px;
   left: 0;
+  min-width: 170px;
   background-color: var(--nav-bg-glass);
-  min-width: 150px;
   z-index: 101;
   border-radius: 0 0 10px 10px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
- }
- 
- 
- .dropdown-content a {
+  overflow: hidden;
+}
+
+.dropdown-content a {
   display: block;
+  width: 100%;
   padding: 12px 15px;
-  color: white;
+  color: var(--nav-text);
   white-space: nowrap;
- }
- 
- 
- .dropdown-content a:hover {
+}
+
+.dropdown-content a:hover {
   background-color: var(--nav-surface-glass);
   color: var(--nav-text-muted);
- }
- 
- 
- .dropdown:hover .dropdown-content {
+}
+
+.dropdown:hover .dropdown-content {
   display: flex;
   flex-direction: column;
- }
+}
 
+/* Main container */
 
 .container {
   max-width: 350px;
@@ -128,6 +126,8 @@ nav a:hover {
   user-select: none;
 }
 
+/* Timer title */
+
 #title {
   color: var(--text);
   display: flex;
@@ -136,6 +136,8 @@ nav a:hover {
   font-size: 20px;
   margin-bottom: 10px;
 }
+
+/* Timer buttons */
 
 #start,
 #stop,
@@ -146,14 +148,25 @@ nav a:hover {
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.2s ease;
 }
+
+#start:hover,
+#stop:hover,
+#reset:hover {
+  opacity: 0.85;
+}
+
+/* Buttons */
 
 .buttons {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap:10px;
+  gap: 10px;
 }
+
+/* Timer */
 
 .time {
   font-size: 20px;
@@ -163,30 +176,44 @@ nav a:hover {
   display: flex;
   justify-content: center;
 }
-#booktitle{
+
+/* Book title input */
+
+#booktitle {
   background-color: var(--nav-bg-glass);
   color: var(--nav-text);
   font-weight: bold;
   font-size: 15px;
-  margin-bottom: 10px;
-  max-width:250px;
-  margin:20px;
+  width: 250px;
+  max-width: 100%;
+  margin: 20px;
   padding: 10px;
+  border: none;
   border-radius: 5px;
+  outline: none;
 }
-#booktitle::placeholder{
+
+#booktitle::placeholder {
   color: var(--nav-text);
   font-weight: bold;
   font-size: 15px;
 }
-.input{
-  display:flex;
+
+/* Input section */
+
+.input {
+  display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
 }
-.topClass{
-        display:flex;
-        flex-direction:row;
-        justify-content: flex-start;
-        gap:20px;
-    }
+
+/* Top section */
+
+.topClass {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
